@@ -8,14 +8,10 @@ interface Todo {
 }
 
 const TodoApp = () => {
-  const [todos, setTodos] = useState<Todo[]>([]);
-
-  useEffect(() => {
-    const storedTodos = JSON.parse(localStorage.getItem("todos") || '[]');
-    if (storedTodos) {
-      setTodos(storedTodos);
-    }
-  }, []);
+  const [todos, setTodos] = useState<Todo[]>(() => {
+    const storedTodos = localStorage.getItem("todos");
+    return storedTodos ? JSON.parse(storedTodos) : [];
+  });
 
   useEffect(() => {
     localStorage.setItem("todos", JSON.stringify(todos));
