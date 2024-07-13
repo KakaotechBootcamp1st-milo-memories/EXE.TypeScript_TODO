@@ -1,3 +1,5 @@
+import { memo } from "react";
+
 interface TodoItemProps {
   index: number;
   todo: {
@@ -23,4 +25,4 @@ const TodoItem = ({ index, todo, toggleComplete, deleteTodo }: TodoItemProps) =>
   );
 };
 
-export default TodoItem;
+export default memo(TodoItem);

@@ -1,4 +1,4 @@
-import { useState, FormEvent, ChangeEvent } from "react";
+import { useState, FormEvent, ChangeEvent, memo } from "react";
 
 interface TodoFormProps {
   addTodo: (input: string) => void;
@@ -30,4 +30,5 @@ const TodoForm = ({ addTodo }: TodoFormProps) => {
   );
 };
 
-export default TodoForm;
+//export default memo(TodoForm);
+export default memo(TodoForm);
